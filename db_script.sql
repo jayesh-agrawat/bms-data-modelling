@@ -74,10 +74,8 @@ CREATE TABLE Shows (
     show_seat_available INT,
     show_seat_booked INT,
     show_seat_blocked INT,
-    show_seat_reserved INT,
     show_seat_cancelled INT,
     show_seat_available_count INT,
-    show_seat_booked_count INT,
     FOREIGN KEY (movie_id) REFERENCES Movies(id) ON DELETE CASCADE,
     FOREIGN KEY (cinema_id) REFERENCES Cinemas(id) ON DELETE CASCADE
 );
@@ -147,20 +145,20 @@ VALUES ('Avengers: Endgame', 1, 1, 181, '2019-04-26', 'U/A', 'After the devastat
        ('Gully Boy', 2, 4, 153, '2019-02-14', 'U/A', 'A coming-of-age story based on the lives of street rappers in Mumbai.', '2D');
 
 -- Insert sample data into Shows table
-INSERT INTO Shows (movie_id, cinema_id, show_date, show_time, show_seat_count, show_seat_price, show_seat_available, show_seat_booked, show_seat_blocked, show_seat_reserved, show_seat_cancelled, show_seat_available_count, show_seat_booked_count)
-VALUES (1, 1, '2022-01-01', '18:00:00', 100, 250.00, 100, 0, 0, 0, 0, 100, 0),
-       (2, 2, '2022-01-02', '19:30:00', 80, 200.00, 80, 0, 0, 0, 0, 80, 0),
-       (3, 3, '2022-01-03', '20:00:00', 120, 300.00, 120, 0, 0, 0, 0, 120, 0),
-       (4, 4, '2022-01-04', '21:00:00', 70, 180.00, 70, 0, 0, 0, 0, 70, 0),
-       (5, 5, '2022-01-05', '22:30:00', 90, 220.00, 90, 0, 0, 0, 0, 90, 0);
+INSERT INTO Shows (movie_id, cinema_id, show_date, show_time, show_seat_count, show_seat_price, show_seat_available, show_seat_booked, show_seat_blocked, show_seat_cancelled, show_seat_available_count)
+VALUES (1, 1, '2022-01-01', '18:00:00', 100, 250.00, 100, 0, 0, 0, 100),
+       (2, 2, '2022-01-02', '19:30:00', 80, 200.00, 80, 0, 0, 0, 80),
+       (3, 3, '2022-01-03', '20:00:00', 120, 300.00, 120, 0, 0, 0, 120),
+       (4, 4, '2022-01-04', '21:00:00', 70, 180.00, 70, 0, 0, 0, 70),
+       (5, 5, '2022-01-05', '22:30:00', 90, 220.00, 90, 0, 0, 0, 90);
 
 -- Insert sample data into Users table
 INSERT INTO Users (name, email, phone, password)
-VALUES ('John Doe', 'john.doe@example.com', '9876543210', 'password123'),
-       ('Jane Smith', 'jane.smith@example.com', '1234567890', 'password456'),
-       ('David Johnson', 'david.johnson@example.com', '9876543210', 'password789'),
-       ('Emily Brown', 'emily.brown@example.com', '1234567890', 'passwordabc'),
-       ('Michael Wilson', 'michael.wilson@example.com', '9876543210', 'passworddef');
+VALUES ('Rahul', 'rahul@example.com', '9876543210', 'password123'),
+       ('Dev', 'Dev@example.com', '1234567890', 'password456'),
+       ('Bhupendra Jogi', 'bhupendrajogi@example.com', '9876543210', 'password789'),
+       ('Mr Beast', 'mrbreast@example.com', '1234567890', 'passwordabc'),
+       ('Michael Jackson', 'michael.jackson@example.com', '9876543210', 'passworddef');
 
 -- Insert sample data into Bookings table
 INSERT INTO Bookings (user_id, show_id, booking_date, booking_time, booking_seat_count, booking_seat_price, booking_seat_number, booking_seat_status, booking_seat_cancelled)
@@ -169,4 +167,3 @@ VALUES (1, 1, '2022-01-01', '18:00:00', 2, 500.00, 'A1,A2', 'Confirmed', false),
        (3, 3, '2022-01-03', '20:00:00', 1, 300.00, 'C1', 'Confirmed', false),
        (4, 4, '2022-01-04', '21:00:00', 4, 720.00, 'D1,D2,D3,D4', 'Confirmed', false),
        (5, 5, '2022-01-05', '22:30:00', 2, 440.00, 'E1,E2', 'Confirmed', false);
-
