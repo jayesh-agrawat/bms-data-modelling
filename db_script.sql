@@ -167,3 +167,11 @@ VALUES (1, 1, '2022-01-01', '18:00:00', 2, 500.00, 'A1,A2', 'Confirmed', false),
        (3, 3, '2022-01-03', '20:00:00', 1, 300.00, 'C1', 'Confirmed', false),
        (4, 4, '2022-01-04', '21:00:00', 4, 720.00, 'D1,D2,D3,D4', 'Confirmed', false),
        (5, 5, '2022-01-05', '22:30:00', 2, 440.00, 'E1,E2', 'Confirmed', false);
+
+
+--  Write a query to list down all the shows on a given date at a given cinema along with their respective show timings. 
+SELECT s.show_date, s.show_time
+FROM Shows s
+JOIN Cinemas c ON s.cinema_id = c.id
+WHERE s.show_date = '2022-01-01' 
+AND c.cinema_name = 'PVR Cinemas';
